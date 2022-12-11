@@ -2,6 +2,15 @@
 name    = "vplugin-init"
 version = "0.1.0"
 edition = "2021"
+license = "GPL-3.0-or-later"
+
+description = "A basic command line utility to generate a basic module for VPlugin."
+keywords    = [
+        "vplugin",
+        "command-line",
+        "plugin",
+        "module"
+]
 
 [dependencies]
 clap    = { version = "4.0.18", default-features = false, features = [ "cargo", "std" ]}
