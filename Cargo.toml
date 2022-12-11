@@ -1,0 +1,9 @@
+[package]
+name    = "vplugin-init"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap    = { version = "4.0.18", default-features = false, features = [ "cargo", "std" ]}
+console = "0.15.2"
+toml    = "0.5.1"

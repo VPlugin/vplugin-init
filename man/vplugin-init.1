@@ -1,0 +1,31 @@
+.TH VPLUGIN-INIT "1" "November 2022" "vplugin-init v0.1.0" "User Manual"
+.SH NAME
+vplugin-init \- A simple utility to create a base plugin compatible with VPlugin.
+
+.SH "SYNOPSIS"
+~/.cargo/bin/vplugin-init [Arguments]
+.SH DESCRIPTION
+vplugin-init is a simple utility to create plugins without the hassle of creating the files manually. It can easily
+be compared to something like 'cargo new --lib <name>' although it's completely self-contained. vplugin-init can be used
+to either create or simply package a plugin to be used by the application you're targeting.
+
+vplugin-init is minimal and simple. It doesn't come with a ton of features, and does nothing more than
+what it promises to do. That is what allows it to become such a flexible and extensible plugin.
+
+.SH "USAGE"
+~/.cargo/bin/vplugin-init [--name <your plugin's name>] [--version <your plugin's version>] [--directory <output directory>]
+                          [ -nvd]
+
+.SH "FLAGS"
+--name \-\- This option is used to specify the name of the plugin, when loaded through VPlugin. (Required)
+
+--version \-\- Used to specify the plugin's version. (Required)
+
+--directory \-\- Output directory for the generated files. (Required, if it's '.' then the current directory is initialized instead.)
+
+--description \-\- Adds a short description of the plugin.
+
+.SH "LICENSE"
+vplugin-init is licensed under the GNU General Public License v3. For more details, see https://github.com/AndroGR/vplugin-init/blob/master/COPYING/.
+.SH "BUGS"
+If you find any bugs or malfunctioning, post an issue to https://github.com/AndroGR/vplugin-init/. Bugs are taken seriously and fixed with each release.
