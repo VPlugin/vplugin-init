@@ -33,6 +33,7 @@ fn usage(argv0: &str) {
     println!();
     println!("{}", green_style.apply_to("Available commands:"));
     println!("\t{} Shows This Information.", default_style.apply_to("--help (-h)"));
+    println!("\t{} Sets the plugin's name.", default_style.apply_to("--name (-n)"));
     println!("\t{} Sets the version of the plugin.", default_style.apply_to("--version (-v)"));
     println!("\t{} Sets the output directory to place the generated files to.", default_style.apply_to("--directory (-d)"));
     println!("\t{} Language to be used for the plugin (C/C++/Rust). Currently does nothing.", default_style.apply_to("--language (-l)"));
@@ -62,7 +63,7 @@ fn main() -> Result<(), String> {
         .author("Aggelos Tselios <aggelostselios777@gmail.com>")
         .about("A simple command line utility to create a base VPlugin module.")
         .arg(arg!(--name      <VALUE>).required(true).short('n').help("Sets the plugin's name."))
-        //.arg(arg!(--version   <VALUE>).required(true).short('v').help("Sets the plugin's version."))
+        .arg(arg!(--version   <VALUE>).required(true).short('v').help("Sets the plugin's version."))
         .arg(arg!(--language  <VALUE>).short('l').help("Sets the programming language that this plugin will use (Currently does nothing)"))
         .arg(arg!(--directory <DIR>).required(true).short('d').help("Where to write the generated plugin."))
         .get_matches();
