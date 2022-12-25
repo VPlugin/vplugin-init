@@ -36,7 +36,7 @@ fn usage(argv0: &str) {
     println!("\t{} Sets the plugin's name.", default_style.apply_to("--name (-n)"));
     println!("\t{} Sets the version of the plugin.", default_style.apply_to("--version (-v)"));
     println!("\t{} Sets the output directory to place the generated files to.", default_style.apply_to("--directory (-d)"));
-    println!("\t{} Language to be used for the plugin (C/C++/Rust). Currently does nothing.", default_style.apply_to("--language (-l)"));
+    println!("\t{} Language to be used for the plugin (Can be 'c', 'cpp' or 'rust'). Defaults to 'rust'", default_style.apply_to("--language (-l)"));
     println!();
     println!("{}", green_style.apply_to("Runtime Information"));
     println!("\t{} -> v0.1.0", default_style.apply_to("Version"));
@@ -70,10 +70,10 @@ fn main() -> Result<(), String> {
 
     appname   = matches.get_one::<String>("name")    .unwrap().to_string();
     version   = matches.get_one::<String>("version") .unwrap().to_string();
-    language  = matches.get_one::<String>("language");
+    language  = matches.get_one::<String>("language").unwrap_or(&"rust".to_string()).to_string();
     directory = matches.get_one::<String>("directory");
 
-    Application::run(appname, version, directory, language).expect("Error.");
+    Application::run(appname, version, language, directory).expect("Error.");
     Application::print_debug(
         "vplugin-init",
         &format!(
